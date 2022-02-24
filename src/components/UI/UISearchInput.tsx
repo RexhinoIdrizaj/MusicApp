@@ -7,6 +7,7 @@ import {
   ViewStyle,
 } from "react-native";
 import { useColorMode } from "../../hooks/useColorMode";
+import { FONTS } from "../../theme/sizes";
 import UIText from "./UIText";
 
 interface TUISearchInputProps extends TextInputProps {
@@ -26,6 +27,7 @@ const UISearchInput: React.FC<TUISearchInputProps> = ({
         style={[
           styles.input,
           {
+            fontSize: FONTS.L,
             color: activeMode.textColor,
             backgroundColor: activeMode.backgroundColor,
           },

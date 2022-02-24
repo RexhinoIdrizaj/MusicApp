@@ -18,5 +18,5 @@ export const SPACINGS = {
   L: 14,
   XL: 16,
   XXL: 18,
-  XXXL: 22,
+  XXXL: 20,
 };

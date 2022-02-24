@@ -3,12 +3,12 @@ import { StyleSheet, View } from "react-native";
 import UISafeAreaView from "./src/components/UI/UISafeAreaView";
 import UISearchInput from "./src/components/UI/UISearchInput";
 import UIFilterChip from "./src/components/UI/UIFilterChip";
+import ScreenMusicList from "./src/screens/ScreenMusicList";
 
 const App = () => {
   return (
     <UISafeAreaView style={styles.container}>
-      <UISearchInput />
-
+      <ScreenMusicList />
       <StatusBar style="auto" />
     </UISafeAreaView>
   );
