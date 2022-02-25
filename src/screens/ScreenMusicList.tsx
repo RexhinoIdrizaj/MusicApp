@@ -1,6 +1,7 @@
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import React, { useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import requests from "../api/config";
 import FiltersSections from "../components/FiltersSections";
 import ListItem from "../components/ListItem";
 import UIBottomSheet from "../components/UI/UIBottomSheet";
@@ -9,19 +10,27 @@ import UISearchInput from "../components/UI/UISearchInput";
 import UIText from "../components/UI/UIText";
 import YearBottomSheetContent from "../components/YearBottomSheetContent";
 import { useColorMode } from "../hooks/useColorMode";
+import useDataList from "../hooks/useDataList";
+import { TDataListResponse, TGenre, TVideo } from "../models/modelData";
 import { SPACINGS } from "../theme/sizes";
 
 const ScreenMusicList: React.FC = () => {
   const activeMode = useColorMode();
+
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
-  const renderItem = () => (
-    <ListItem
-      imageSrc={""}
-      title="test"
-      onPress={() => console.log("Navigate to details")}
-    />
-  );
+  const { dataList, genreList, error, loading } = useDataList();
+
+  const renderItem = useCallback(({ item }: { item: TVideo }) => {
+    return (
+      <ListItem
+        imageSrc={item.image_url}
+        title={item.title}
+        artist={item.artist}
+        onPress={() => console.log("Navigate to details")}
+      />
+    );
+  }, []);
 
   return (
     <>
@@ -42,9 +51,11 @@ const ScreenMusicList: React.FC = () => {
         <View style={styles.contentWrapper}>
           <FlatList
             contentContainerStyle={styles.contentList}
-            numColumns={3}
-            data={[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]}
+            numColumns={2}
+            data={dataList}
             renderItem={renderItem}
+            maxToRenderPerBatch={0}
+            keyExtractor={(item) => item.id.toString()}
           />
         </View>
       </View>
