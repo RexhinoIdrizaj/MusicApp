@@ -19,4 +19,6 @@ export const SPACINGS = {
   XL: 16,
   XXL: 18,
   XXXL: 20,
+  B: 30,
+  XB: 40,
 };

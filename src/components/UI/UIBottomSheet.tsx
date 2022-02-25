@@ -13,6 +13,7 @@ import UIFilterChip from "./UIFilterChip";
 interface TUIBottomSheetProps {
   snapPoints?: (string | number)[];
   bottomSheetStyle?: ViewStyle;
+  children: JSX.Element;
 }
 
 const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
@@ -31,8 +32,9 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
           ref={modalRef}
           index={0}
           style={[styles.bottomSheetWrapperStyle, bottomSheetStyle]}
-          snapPoints={defaultSnapPoints}
+          snapPoints={snapPoints ?? defaultSnapPoints}
           onChange={handleSheetChanges}
+          backgroundStyle={{ backgroundColor: activeMode.backgroundColor }}
           backdropComponent={(backdropProps) => (
             <BottomSheetBackdrop
               {...backdropProps}
@@ -43,7 +45,7 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
           )}
           enablePanDownToClose
         >
-          {children}
+          <>{children}</>
         </BottomSheetModal>
       </BottomSheetModalProvider>
     );

@@ -47,12 +47,14 @@ const UIFilterChip: React.FC<TUIFilterChipProps> = ({
         >
           {text}
         </UIText>
-        {withIcon && <FontAwesome5
-          style={styles.icon}
-          name="caret-down"
-          size={14}
-          color={activeMode.textColor}
-        />}
+        {withIcon && (
+          <FontAwesome5
+            style={styles.icon}
+            name="caret-down"
+            size={14}
+            color={activeMode.textColor}
+          />
+        )}
       </UIView>
     </TouchableOpacity>
   );
@@ -64,10 +66,9 @@ const styles = StyleSheet.create({
   wrapper: {
     borderRadius: 15,
     borderWidth: 1,
-    paddingVertical: SPACINGS.S,
+    paddingVertical: SPACINGS.XS,
     paddingHorizontal: SPACINGS.M,
-    marginRight: SPACINGS.XXS,
-    minWidth: 75,
+    marginRight: SPACINGS.M,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

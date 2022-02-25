@@ -9,25 +9,18 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 const FiltersSections = () => {
   const activeMode = useColorMode();
 
-  const renderItem = () => (
-    <UIFilterChip onPress={() => console.log("")} text={"test"} />
+  const renderItem = ({ item }) => (
+    <UIFilterChip selected onPress={() => console.log("")} text={item} />
   );
 
   return (
     <>
-      <View
-        style={[
-          styles.container,
-          {
-            borderColor: activeMode.grey,
-          },
-        ]}
-      >
+      <View style={[styles.container]}>
         <FlatList
           contentContainerStyle={styles.content}
           showsHorizontalScrollIndicator={false}
           horizontal
-          data={[1, 2, 3, 4, 5]}
+          data={["Playlists", "Artists", "Podcasts & Shows"]}
           renderItem={renderItem}
         />
       </View>
@@ -39,11 +32,10 @@ export default FiltersSections;
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: 1,
-
-    paddingVertical: SPACINGS.S,
+    paddingVertical: SPACINGS.XXXL,
+    flex: 1,
   },
   content: {
-    paddingHorizontal: SPACINGS.XXXL,
+    paddingLeft: SPACINGS.XXXL,
   },
 });

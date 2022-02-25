@@ -11,14 +11,14 @@ export const COMMON_COLORS: TCommonColors = {
 export const MODES: TThemeModes = {
   light: {
     ...COMMON_COLORS,
-    primary: "#5048fe",
+    primary: "#f56720",
     backgroundColor: "#f4f5f8",
     textColor: "#0e1823",
   },
   dark: {
     ...COMMON_COLORS,
-    primary: "#5048fe",
-    backgroundColor: "#37373e",
+    primary: "#f56720",
+    backgroundColor: "#21272c",
     textColor: "#ffffff",
   },
 };
