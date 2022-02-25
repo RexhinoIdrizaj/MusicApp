@@ -1,5 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import FiltersSections from "../components/FiltersSections";
 import ListItem from "../components/ListItem";
 import UISearchInput from "../components/UI/UISearchInput";
 import { useColorMode } from "../hooks/useColorMode";
@@ -27,11 +28,12 @@ const ScreenMusicList: React.FC = () => {
       >
         <UISearchInput />
       </View>
+      <FiltersSections />
       <View style={styles.contentWrapper}>
         <FlatList
           contentContainerStyle={styles.contentList}
           numColumns={3}
-          data={[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4,]}
+          data={[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]}
           renderItem={renderItem}
         />
       </View>
