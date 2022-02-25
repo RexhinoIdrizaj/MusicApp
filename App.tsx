@@ -1,8 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import UISafeAreaView from "./src/components/UI/UISafeAreaView";
-import UISearchInput from "./src/components/UI/UISearchInput";
-import UIFilterChip from "./src/components/UI/UIFilterChip";
 import ScreenMusicList from "./src/screens/ScreenMusicList";
 
 const App = () => {

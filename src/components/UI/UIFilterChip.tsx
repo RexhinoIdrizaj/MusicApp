@@ -30,9 +30,6 @@ const UIFilterChip: React.FC<TUIFilterChipProps> = ({
         style={[
           styles.wrapper,
           {
-            paddingVertical: SPACINGS.S,
-            paddingHorizontal: SPACINGS.M,
-            marginRight: SPACINGS.XXS,
             borderColor: selected ? activeMode.primary : activeMode.textColor,
             backgroundColor: selected
               ? activeMode.primary
@@ -57,5 +54,8 @@ const styles = StyleSheet.create({
   wrapper: {
     borderRadius: 10,
     borderWidth: 1,
+    paddingVertical: SPACINGS.S,
+    paddingHorizontal: SPACINGS.M,
+    marginRight: SPACINGS.XXS,
   },
 });
