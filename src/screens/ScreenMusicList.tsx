@@ -1,13 +1,16 @@
-import React from "react";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import React, { useRef } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import FiltersSections from "../components/FiltersSections";
 import ListItem from "../components/ListItem";
+import UIBottomSheet from "../components/UI/UIBottomSheet";
 import UISearchInput from "../components/UI/UISearchInput";
 import { useColorMode } from "../hooks/useColorMode";
 import { SPACINGS } from "../theme/sizes";
 
 const ScreenMusicList: React.FC = () => {
   const activeMode = useColorMode();
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   const renderItem = () => (
     <ListItem
@@ -17,27 +20,30 @@ const ScreenMusicList: React.FC = () => {
     />
   );
   return (
-    <View style={[styles.wrapper]}>
-      <View
-        style={[
-          styles.searchContainer,
-          {
-            borderColor: activeMode.grey,
-          },
-        ]}
-      >
-        <UISearchInput />
+    <>
+      <View style={[styles.wrapper]}>
+        <View
+          style={[
+            styles.searchContainer,
+            {
+              borderColor: activeMode.grey,
+            },
+          ]}
+        >
+          <UISearchInput />
+        </View>
+        <FiltersSections />
+        <View style={styles.contentWrapper}>
+          <FlatList
+            contentContainerStyle={styles.contentList}
+            numColumns={3}
+            data={[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]}
+            renderItem={renderItem}
+          />
+        </View>
       </View>
-      <FiltersSections />
-      <View style={styles.contentWrapper}>
-        <FlatList
-          contentContainerStyle={styles.contentList}
-          numColumns={3}
-          data={[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]}
-          renderItem={renderItem}
-        />
-      </View>
-    </View>
+      <UIBottomSheet ref={bottomSheetModalRef} />
+    </>
   );
 };
 
