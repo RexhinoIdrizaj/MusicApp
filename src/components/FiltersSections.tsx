@@ -5,12 +5,27 @@ import { SPACINGS } from "../theme/sizes";
 import UIBottomSheet from "./UI/UIBottomSheet";
 import UIFilterChip from "./UI/UIFilterChip";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import { TGenre } from "../models/modelData";
 
-const FiltersSections = () => {
+interface TFiltersSectionsProps {
+  genres: TGenre[];
+  selectedGenresId: number[];
+  onSelectGenre: (genreId: number) => void;
+}
+
+const FiltersSections: React.FC<TFiltersSectionsProps> = ({
+  genres,
+  selectedGenresId,
+  onSelectGenre,
+}) => {
   const activeMode = useColorMode();
 
-  const renderItem = ({ item }) => (
-    <UIFilterChip selected onPress={() => console.log("")} text={item} />
+  const renderItem = ({ item }: { item: TGenre }) => (
+    <UIFilterChip
+      selected={!!selectedGenresId.find((id) => id === item.id)}
+      onPress={() => onSelectGenre(item.id)}
+      text={item.name}
+    />
   );
 
   return (
@@ -20,8 +35,9 @@ const FiltersSections = () => {
           contentContainerStyle={styles.content}
           showsHorizontalScrollIndicator={false}
           horizontal
-          data={["Playlists", "Artists", "Podcasts & Shows"]}
+          data={genres}
           renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
     </>

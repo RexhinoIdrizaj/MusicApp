@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useColorMode } from "../hooks/useColorMode";
+import { TNullable } from "../models/modelShared";
 import { SPACINGS } from "../theme/sizes";
 import { SCREEN_WIDTH } from "../utils/constants";
+import { getYearsList } from "../utils/helpers";
 import UIText from "./UI/UIText";
 
 interface TYearBottomSheetContentProps {
-  selectedValue: string;
-  onPress: (value: string) => void;
+  selectedValue: TNullable<string>;
+  onPress: (value: TNullable<string>) => void;
 }
 
 const YearBottomSheetContent: React.FC<TYearBottomSheetContentProps> = ({
@@ -16,7 +18,15 @@ const YearBottomSheetContent: React.FC<TYearBottomSheetContentProps> = ({
 }) => {
   const activeMode = useColorMode();
 
-  const renderItem = ({ item }: { item: string }) => (
+  const [yearsList, setYearsList] = useState<TNullable<string>[]>([]);
+
+  useEffect(() => {
+    if (yearsList.length > 0) return;
+    const wantedList = [null, ...getYearsList()];
+    setYearsList(wantedList);
+  }, [yearsList]);
+
+  const renderItem = ({ item }: { item: TNullable<string> }) => (
     <TouchableOpacity
       onPress={() => onPress(item)}
       style={[
@@ -27,18 +37,20 @@ const YearBottomSheetContent: React.FC<TYearBottomSheetContentProps> = ({
         },
       ]}
     >
-      <UIText fontSize="XXXL">2020</UIText>
+      <UIText fontSize="XXXL">{item ?? "All"}</UIText>
     </TouchableOpacity>
   );
 
+  console.log(`yearsList`, yearsList[0]);
   return (
     <View style={styles.container}>
       <FlatList
-        data={["2020", "2021", "2022", "1111", "1234", "4321", "5444", "6655"]}
+        data={yearsList}
         style={styles.listWrapper}
         contentContainerStyle={styles.contentWrapper}
         showsVerticalScrollIndicator={false}
         renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
       />
     </View>
   );

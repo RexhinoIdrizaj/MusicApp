@@ -10,13 +10,17 @@ import UISearchInput from "../components/UI/UISearchInput";
 import YearBottomSheetContent from "../components/YearBottomSheetContent";
 import { useColorMode } from "../hooks/useColorMode";
 import useDataList from "../hooks/useDataList";
-import { TVideo } from "../models/modelData";
+import { TGenre, TVideo } from "../models/modelData";
+import { TNullable } from "../models/modelShared";
 import { SPACINGS } from "../theme/sizes";
 
 const ScreenMusicList: React.FC = () => {
   const activeMode = useColorMode();
 
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  const [selectedGenresId, setSelectedGenresId] = useState<number[]>([]);
+  const [selectedYear, setSelectedYear] = useState<TNullable<string>>(null);
 
   const { dataList, genreList, error, loading } = useDataList();
 
@@ -31,6 +35,28 @@ const ScreenMusicList: React.FC = () => {
     );
   }, []);
 
+  const handleGenreSelect = useCallback(
+    (genreId: number) => {
+      const currentGenresId = [...selectedGenresId];
+      const genreExists = currentGenresId.find((el) => el === genreId);
+      const newGenres = genreExists
+        ? currentGenresId.filter((el) => el !== genreId)
+        : [...selectedGenresId, genreId];
+      setSelectedGenresId(newGenres);
+    },
+    [selectedGenresId]
+  );
+
+  const getFilteredData = useCallback(() => {
+    // const buildFilter = () => {
+    //   if()
+    // };
+    const filteredData = dataList.filter((el) =>
+      selectedGenresId.includes(el.genre_id)
+    );
+    return filteredData;
+  }, [selectedGenresId, dataList]);
+
   return (
     <>
       <View style={[styles.wrapper]}>
@@ -38,11 +64,15 @@ const ScreenMusicList: React.FC = () => {
           <UISearchInput />
         </View>
         <View style={styles.filters}>
-          <FiltersSections />
+          <FiltersSections
+            genres={genreList}
+            selectedGenresId={selectedGenresId}
+            onSelectGenre={handleGenreSelect}
+          />
           <View style={styles.yearWrapper}>
             <UIFilterChip
               withIcon
-              text="2022"
+              text={selectedYear ?? 'Year'}
               onPress={() => bottomSheetModalRef.current?.present()}
             />
           </View>
@@ -51,7 +81,7 @@ const ScreenMusicList: React.FC = () => {
           <FlatList
             contentContainerStyle={styles.contentList}
             numColumns={3}
-            data={dataList}
+            data={getFilteredData()}
             renderItem={renderItem}
             keyExtractor={(item) => item.id.toString()}
           />
@@ -59,8 +89,8 @@ const ScreenMusicList: React.FC = () => {
       </View>
       <UIBottomSheet ref={bottomSheetModalRef}>
         <YearBottomSheetContent
-          selectedValue="6655"
-          onPress={(value) => console.log(value)}
+          selectedValue={selectedYear}
+          onPress={(value) => setSelectedYear(value)}
         />
       </UIBottomSheet>
     </>

@@ -1,5 +1,5 @@
 export interface TGenre {
-  id: string;
+  id: number;
   name: string;
 }
 
