@@ -1,9 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SPACINGS } from "../theme/sizes";
 import { SCREEN_WIDTH } from "../utils/constants";
+import EnhancedImage from "./EnhancedImage";
 import UIText from "./UI/UIText";
 
+const ITEMS_PER_COLUMN = 3;
+const ITEM_WIDTH =
+  (SCREEN_WIDTH - SPACINGS.XXXL * 2 - SPACINGS.S * 2) / ITEMS_PER_COLUMN;
 interface TListItemProps {
   imageSrc: string | null;
   title: string;
@@ -19,9 +23,9 @@ const ListItem: React.FC<TListItemProps> = ({
 }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      {!imageSrc && (
+      {!!imageSrc && (
         <View style={styles.imageWrapper}>
-          {/* <UIImage src={imageSrc} /> */}
+          <EnhancedImage imgSource={imageSrc} />
         </View>
       )}
       <View style={styles.contentWrapper}>
@@ -40,13 +44,13 @@ export default ListItem;
 
 const styles = StyleSheet.create({
   container: {
-    width: (SCREEN_WIDTH - SPACINGS.XXXL * 2 - SPACINGS.S * 2) / 2,
+    width: ITEM_WIDTH,
     marginRight: SPACINGS.S,
     marginBottom: SPACINGS.XL,
   },
   imageWrapper: {
-    borderWidth: 1,
-    height: 110,
+    width: ITEM_WIDTH,
+    height: ITEM_WIDTH,
   },
   contentWrapper: {
     marginTop: SPACINGS.XS,

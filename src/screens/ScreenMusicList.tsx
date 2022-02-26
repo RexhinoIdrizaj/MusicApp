@@ -7,11 +7,10 @@ import ListItem from "../components/ListItem";
 import UIBottomSheet from "../components/UI/UIBottomSheet";
 import UIFilterChip from "../components/UI/UIFilterChip";
 import UISearchInput from "../components/UI/UISearchInput";
-import UIText from "../components/UI/UIText";
 import YearBottomSheetContent from "../components/YearBottomSheetContent";
 import { useColorMode } from "../hooks/useColorMode";
 import useDataList from "../hooks/useDataList";
-import { TDataListResponse, TGenre, TVideo } from "../models/modelData";
+import { TVideo } from "../models/modelData";
 import { SPACINGS } from "../theme/sizes";
 
 const ScreenMusicList: React.FC = () => {
@@ -51,10 +50,9 @@ const ScreenMusicList: React.FC = () => {
         <View style={styles.contentWrapper}>
           <FlatList
             contentContainerStyle={styles.contentList}
-            numColumns={2}
+            numColumns={3}
             data={dataList}
             renderItem={renderItem}
-            maxToRenderPerBatch={0}
             keyExtractor={(item) => item.id.toString()}
           />
         </View>
