@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import Constants from "expo-constants";
 
-console.log(`Constants`, Constants.manifest?.extra?.baseUrl);
 
 const BASE_URL = Constants.manifest?.extra?.baseUrl;
 

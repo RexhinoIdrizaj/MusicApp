@@ -22,10 +22,6 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
 
     const defaultSnapPoints = useMemo(() => ["50%"], []);
 
-    const handleSheetChanges = useCallback((index: number) => {
-      console.log("handleSheetChanges", index);
-    }, []);
-
     return (
       <BottomSheetModalProvider>
         <BottomSheetModal
@@ -33,7 +29,6 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
           index={0}
           style={[styles.bottomSheetWrapperStyle, bottomSheetStyle]}
           snapPoints={snapPoints ?? defaultSnapPoints}
-          onChange={handleSheetChanges}
           backgroundStyle={{ backgroundColor: activeMode.backgroundColor }}
           backdropComponent={(backdropProps) => (
             <BottomSheetBackdrop

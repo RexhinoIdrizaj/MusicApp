@@ -57,13 +57,11 @@ const ScreenMusicList: React.FC = () => {
   );
 
   const handleUserInput = useCallback((value) => {
-    console.log(value);
     setTextQuery(value);
   }, []);
 
   const getFilteredData = useCallback(() => {
     const getFilter = (el: TVideo) => {
-      console.log(`el`, typeof el.title);
       let filter = true;
       if (selectedYear) {
         filter =

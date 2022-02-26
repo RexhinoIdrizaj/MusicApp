@@ -41,7 +41,6 @@ const YearBottomSheetContent: React.FC<TYearBottomSheetContentProps> = ({
     </TouchableOpacity>
   );
 
-  console.log(`yearsList`, yearsList[0]);
   return (
     <View style={styles.container}>
       <FlatList
