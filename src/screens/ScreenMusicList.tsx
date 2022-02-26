@@ -21,6 +21,7 @@ const ScreenMusicList: React.FC = () => {
 
   const [selectedGenresId, setSelectedGenresId] = useState<number[]>([]);
   const [selectedYear, setSelectedYear] = useState<TNullable<string>>(null);
+  const [textQuery, setTextQuery] = useState<string>("");
 
   const { dataList, genreList, error, loading } = useDataList();
 
@@ -47,21 +48,52 @@ const ScreenMusicList: React.FC = () => {
     [selectedGenresId]
   );
 
+  const onSelectYear = useCallback(
+    (value) => {
+      bottomSheetModalRef.current?.close();
+      setSelectedYear(value);
+    },
+    [bottomSheetModalRef]
+  );
+
+  const handleUserInput = useCallback((value) => {
+    console.log(value);
+    setTextQuery(value);
+  }, []);
+
   const getFilteredData = useCallback(() => {
-    // const buildFilter = () => {
-    //   if()
-    // };
-    const filteredData = dataList.filter((el) =>
-      selectedGenresId.includes(el.genre_id)
-    );
-    return filteredData;
-  }, [selectedGenresId, dataList]);
+    const getFilter = (el: TVideo) => {
+      console.log(`el`, typeof el.title);
+      let filter = true;
+      if (selectedYear) {
+        filter =
+          filter &&
+          !!el.release_year &&
+          el.release_year === Number(selectedYear);
+      }
+
+      if (selectedGenresId.length > 0) {
+        filter = filter && selectedGenresId.includes(el.genre_id);
+      }
+      if (textQuery) {
+        const lowerCaseQuery = textQuery.toLowerCase();
+        const title = el?.title ? el.title.toString().toLowerCase() : "";
+        const artist = el?.artist ? el.artist.toLowerCase() : "";
+        filter =
+          filter &&
+          (title.includes(lowerCaseQuery) || artist.includes(lowerCaseQuery));
+      }
+      return filter;
+    };
+    const wantedData = dataList.length > 0 ? dataList.filter(getFilter) : [];
+    return wantedData;
+  }, [selectedGenresId, dataList, selectedYear, textQuery]);
 
   return (
     <>
       <View style={[styles.wrapper]}>
         <View style={[styles.searchContainer]}>
-          <UISearchInput />
+          <UISearchInput value={textQuery} onChangeText={handleUserInput} />
         </View>
         <View style={styles.filters}>
           <FiltersSections
@@ -72,7 +104,7 @@ const ScreenMusicList: React.FC = () => {
           <View style={styles.yearWrapper}>
             <UIFilterChip
               withIcon
-              text={selectedYear ?? 'Year'}
+              text={selectedYear ?? "Year"}
               onPress={() => bottomSheetModalRef.current?.present()}
             />
           </View>
@@ -90,7 +122,7 @@ const ScreenMusicList: React.FC = () => {
       <UIBottomSheet ref={bottomSheetModalRef}>
         <YearBottomSheetContent
           selectedValue={selectedYear}
-          onPress={(value) => setSelectedYear(value)}
+          onPress={onSelectYear}
         />
       </UIBottomSheet>
     </>
