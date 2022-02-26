@@ -7,12 +7,17 @@ import ListItem from "../components/ListItem";
 import UIBottomSheet from "../components/UI/UIBottomSheet";
 import UIFilterChip from "../components/UI/UIFilterChip";
 import UISearchInput from "../components/UI/UISearchInput";
+import UISkeleton from "../components/UI/UISkeleton";
 import YearBottomSheetContent from "../components/YearBottomSheetContent";
 import { useColorMode } from "../hooks/useColorMode";
 import useDataList from "../hooks/useDataList";
 import { TGenre, TVideo } from "../models/modelData";
 import { TNullable } from "../models/modelShared";
 import { SPACINGS } from "../theme/sizes";
+import {
+  ITEMS_PER_COLUMN,
+  SCREEN_WIDTH_WITHOUT_SPACING,
+} from "../utils/constants";
 
 const ScreenMusicList: React.FC = () => {
   const activeMode = useColorMode();
@@ -108,13 +113,31 @@ const ScreenMusicList: React.FC = () => {
           </View>
         </View>
         <View style={styles.contentWrapper}>
-          <FlatList
-            contentContainerStyle={styles.contentList}
-            numColumns={3}
-            data={getFilteredData()}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
-          />
+          {loading ? (
+            <View style={styles.contentList}>
+              <UISkeleton
+                loaderStyle={{
+                  width:
+                    (SCREEN_WIDTH_WITHOUT_SPACING - SPACINGS.S) /
+                    ITEMS_PER_COLUMN,
+                  height:
+                    (SCREEN_WIDTH_WITHOUT_SPACING - SPACINGS.S) /
+                    ITEMS_PER_COLUMN,
+                  marginRight: SPACINGS.S,
+                  marginBottom: SPACINGS.XL,
+                }}
+                numberOfItems={20}
+              />
+            </View>
+          ) : (
+            <FlatList
+              contentContainerStyle={styles.contentList}
+              numColumns={3}
+              data={getFilteredData()}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id.toString()}
+            />
+          )}
         </View>
       </View>
       <UIBottomSheet ref={bottomSheetModalRef}>

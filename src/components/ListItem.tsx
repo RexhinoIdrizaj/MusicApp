@@ -1,13 +1,12 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SPACINGS } from "../theme/sizes";
-import { SCREEN_WIDTH } from "../utils/constants";
+import { ITEMS_PER_COLUMN, SCREEN_WIDTH, SCREEN_WIDTH_WITHOUT_SPACING } from "../utils/constants";
 import EnhancedImage from "./EnhancedImage";
 import UIText from "./UI/UIText";
 
-const ITEMS_PER_COLUMN = 3;
-const ITEM_WIDTH =
-  (SCREEN_WIDTH - SPACINGS.XXXL * 2 - SPACINGS.S * 2) / ITEMS_PER_COLUMN;
+
+const ITEM_WIDTH = SCREEN_WIDTH_WITHOUT_SPACING / ITEMS_PER_COLUMN;
 interface TListItemProps {
   imageSrc: string | null;
   title: string;
