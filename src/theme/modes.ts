@@ -12,8 +12,8 @@ export const MODES: TThemeModes = {
   light: {
     ...COMMON_COLORS,
     primary: "#f56720",
-    backgroundColor: "#f4f5f8",
-    textColor: "#0e1823",
+    backgroundColor: "#21272c",
+    textColor: "#ffffff",
   },
   dark: {
     ...COMMON_COLORS,

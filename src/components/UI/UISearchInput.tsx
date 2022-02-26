@@ -18,7 +18,7 @@ const UISearchInput: React.FC<TUISearchInputProps> = ({
   ...props
 }) => {
   const activeMode = useColorMode();
-  
+
   return (
     <View
       style={[styles.wrapper, { borderColor: activeMode.grey }, wrapperStyle]}
@@ -26,6 +26,7 @@ const UISearchInput: React.FC<TUISearchInputProps> = ({
       <TextInput
         clearButtonMode="while-editing"
         placeholder="Search"
+        placeholderTextColor={activeMode.grey}
         style={[
           {
             fontSize: FONTS.L,
