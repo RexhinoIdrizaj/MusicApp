@@ -7,7 +7,6 @@ const App = () => {
   return (
     <UISafeAreaView style={styles.container}>
       <ScreenMusicList />
-      <StatusBar style="auto" />
     </UISafeAreaView>
   );
 };

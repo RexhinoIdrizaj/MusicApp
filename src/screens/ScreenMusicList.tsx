@@ -123,7 +123,11 @@ const ScreenMusicList: React.FC = () => {
     <>
       <View style={[styles.wrapper]}>
         <View style={[styles.searchContainer]}>
-          <UISearchInput value={textQuery} onChangeText={handleUserInput} onClearInput={handleUserInput} />
+          <UISearchInput
+            value={textQuery}
+            onChangeText={handleUserInput}
+            onClearInput={handleUserInput}
+          />
         </View>
         <View style={styles.filters}>
           <FiltersSections

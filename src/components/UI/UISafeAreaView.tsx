@@ -1,7 +1,8 @@
 import React from "react";
-import { SafeAreaView, ViewStyle } from "react-native";
+import { ViewStyle } from "react-native";
 import { useColorMode } from "../../hooks/useColorMode";
 import { TThemeMode } from "../../models/modelTheme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 interface TUISafeAreaViewProps {
   backgroundColor?: keyof TThemeMode;
