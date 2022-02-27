@@ -6,7 +6,7 @@ import {
   ViewStyle,
 } from "react-native";
 import { useColorMode } from "../../hooks/useColorMode";
-import { SPACINGS } from "../../theme/sizes";
+import { RADIUS, SPACINGS } from "../../theme/sizes";
 import UIText from "./UIText";
 import UIView from "./UIView";
 
@@ -64,7 +64,7 @@ export default UIFilterChip;
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderRadius: 15,
+    borderRadius: RADIUS.M,
     borderWidth: 1,
     paddingVertical: SPACINGS.XS,
     paddingHorizontal: SPACINGS.M,

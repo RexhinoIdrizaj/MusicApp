@@ -5,7 +5,7 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
-import { SPACINGS } from "../../theme/sizes";
+import { RADIUS, SPACINGS } from "../../theme/sizes";
 import { useColorMode } from "../../hooks/useColorMode";
 import UIView from "./UIView";
 import UIFilterChip from "./UIFilterChip";
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bottomSheetWrapperStyle: {
-    borderRadius: 30,
+    borderRadius: RADIUS.XL,
     paddingVertical: SPACINGS.L,
   },
 });

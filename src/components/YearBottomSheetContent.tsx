@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { useColorMode } from "../hooks/useColorMode";
 import { TNullable } from "../models/modelShared";
-import { SPACINGS } from "../theme/sizes";
+import { RADIUS, SPACINGS } from "../theme/sizes";
 import { SCREEN_WIDTH } from "../utils/constants";
 import { getYearsList } from "../utils/helpers";
 import UIText from "./UI/UIText";
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH - SPACINGS.XXXL * 2,
     marginBottom: SPACINGS.M,
     paddingVertical: SPACINGS.M,
-    borderRadius: 20,
+    borderRadius: RADIUS.L,
     alignItems: "center",
   },
 });

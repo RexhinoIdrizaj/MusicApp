@@ -7,7 +7,7 @@ import {
   ViewStyle,
 } from "react-native";
 import { useColorMode } from "../../hooks/useColorMode";
-import { FONTS } from "../../theme/sizes";
+import { FONTS, RADIUS } from "../../theme/sizes";
 
 interface TUISearchInputProps extends TextInputProps {
   wrapperStyle?: ViewStyle;
@@ -44,7 +44,7 @@ export default UISearchInput;
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderRadius: 30,
+    borderRadius: RADIUS.XL,
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderWidth: 1,

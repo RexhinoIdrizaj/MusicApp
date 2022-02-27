@@ -1,14 +1,22 @@
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import requests from "../api/config";
 import FiltersSections from "../components/FiltersSections";
 import ListItem from "../components/ListItem";
 import UIBottomSheet from "../components/UI/UIBottomSheet";
+import UIButton from "../components/UI/UIButton";
 import UIFilterChip from "../components/UI/UIFilterChip";
 import UINoData from "../components/UI/UINoData";
 import UISearchInput from "../components/UI/UISearchInput";
 import UISkeleton from "../components/UI/UISkeleton";
+import UIText from "../components/UI/UIText";
 import YearBottomSheetContent from "../components/YearBottomSheetContent";
 import { useColorMode } from "../hooks/useColorMode";
 import useDataList from "../hooks/useDataList";
@@ -29,7 +37,8 @@ const ScreenMusicList: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<TNullable<string>>(null);
   const [textQuery, setTextQuery] = useState<string>("");
 
-  const { dataList, genreList, error, loading } = useDataList();
+  const { dataList, genreList, dataListError, loading, getDataList } =
+    useDataList();
 
   const renderItem = useCallback(({ item }: { item: TVideo }) => {
     return (
@@ -93,6 +102,23 @@ const ScreenMusicList: React.FC = () => {
     return wantedData;
   }, [selectedGenresId, dataList, selectedYear, textQuery]);
 
+  if (dataListError) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <UINoData errorType="generalError" />
+        <View
+          style={{
+            marginTop: SPACINGS.XL,
+            justifyContent: "flex-start",
+            alignItems: "center",
+          }}
+        >
+          <UIButton title="Retry" onPress={() => getDataList()} />
+        </View>
+      </View>
+    );
+  }
+
   return (
     <>
       <View style={[styles.wrapper]}>
@@ -137,7 +163,9 @@ const ScreenMusicList: React.FC = () => {
               data={getFilteredData()}
               renderItem={renderItem}
               keyExtractor={(item) => item.id.toString()}
-              ListEmptyComponent={() => <UINoData />}
+              ListEmptyComponent={() => (
+                <UINoData wrapperStyle={{ flexGrow: 1 }} errorType="noData" />
+              )}
             />
           )}
         </View>

@@ -22,3 +22,10 @@ export const SPACINGS = {
   B: 30,
   XB: 40,
 };
+
+export const RADIUS = {
+  S: 10,
+  M: 15,
+  L: 20,
+  XL: 30,
+};
