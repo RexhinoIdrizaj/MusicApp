@@ -1,23 +1,25 @@
 import React, { useCallback, useState } from "react";
 import { Image, StyleSheet } from "react-native";
-import { ITEM_PLACEHOLDER } from "../../assets";
+import { ITEM_PLACEHOLDER } from "../../../assets";
 
-interface TEnhancedImageProps {
+interface TUIListImagePlaceholderProps {
   imgSource: string;
 }
 
-const EnhancedImage: React.FC<TEnhancedImageProps> = ({ imgSource }) => {
+const UIListImagePlaceholder: React.FC<TUIListImagePlaceholderProps> = ({
+  imgSource,
+}) => {
   return (
     <>
       <Image
         style={{ width: "100%", height: "100%" }}
-        source={{ uri: imgSource, cache: "reload" }}
+        source={{ uri: imgSource }}
         defaultSource={ITEM_PLACEHOLDER}
       />
     </>
   );
 };
 
-export default EnhancedImage;
+export default UIListImagePlaceholder;
 
 const styles = StyleSheet.create({});

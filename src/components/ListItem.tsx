@@ -1,10 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SPACINGS } from "../theme/sizes";
-import { ITEMS_PER_COLUMN, SCREEN_WIDTH, SCREEN_WIDTH_WITHOUT_SPACING } from "../utils/constants";
-import EnhancedImage from "./EnhancedImage";
+import {
+  ITEMS_PER_COLUMN,
+  SCREEN_WIDTH_WITHOUT_SPACING,
+} from "../utils/constants";
+import UIListImagePlaceholder from "./UI/UIListImagePlaceholder";
 import UIText from "./UI/UIText";
-
 
 const ITEM_WIDTH = SCREEN_WIDTH_WITHOUT_SPACING / ITEMS_PER_COLUMN;
 interface TListItemProps {
@@ -24,14 +26,14 @@ const ListItem: React.FC<TListItemProps> = ({
     <TouchableOpacity style={styles.container} onPress={onPress}>
       {!!imageSrc && (
         <View style={styles.imageWrapper}>
-          <EnhancedImage imgSource={imageSrc} />
+          <UIListImagePlaceholder imgSource={imageSrc} />
         </View>
       )}
       <View style={styles.contentWrapper}>
         <UIText style={styles.artist} fontSize="M" fontWeight="bold">
           {artist}
         </UIText>
-        <UIText style={styles.title} fontSize="M" fontWeight="normal">
+        <UIText style={styles.title} fontSize="S" fontWeight="normal">
           {title}
         </UIText>
       </View>

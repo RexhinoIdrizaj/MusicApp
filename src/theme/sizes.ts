@@ -1,7 +1,7 @@
 export const FONTS = {
   XXS: 4,
   XS: 6,
-  S: 8,
+  S: 10,
   M: 12,
   L: 14,
   XL: 16,

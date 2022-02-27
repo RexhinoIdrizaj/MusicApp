@@ -6,6 +6,7 @@ import FiltersSections from "../components/FiltersSections";
 import ListItem from "../components/ListItem";
 import UIBottomSheet from "../components/UI/UIBottomSheet";
 import UIFilterChip from "../components/UI/UIFilterChip";
+import UINoData from "../components/UI/UINoData";
 import UISearchInput from "../components/UI/UISearchInput";
 import UISkeleton from "../components/UI/UISkeleton";
 import YearBottomSheetContent from "../components/YearBottomSheetContent";
@@ -136,6 +137,7 @@ const ScreenMusicList: React.FC = () => {
               data={getFilteredData()}
               renderItem={renderItem}
               keyExtractor={(item) => item.id.toString()}
+              ListEmptyComponent={() => <UINoData />}
             />
           )}
         </View>
@@ -165,6 +167,7 @@ const styles = StyleSheet.create({
   },
   contentList: {
     padding: SPACINGS.XXXL,
+    flexGrow: 1,
   },
   yearWrapper: {
     paddingVertical: SPACINGS.XXXL,

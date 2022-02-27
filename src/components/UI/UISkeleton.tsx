@@ -23,7 +23,7 @@ const UISkeleton: React.FC<TUISkeletonProps> = ({
   const activeMode = useColorMode();
   const animatedStyle = useSkeletonAnimation({
     speed: 1000,
-    targetOpacityValue: 0.2,
+    targetOpacityValue: 0.1,
   });
 
   return (

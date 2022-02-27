@@ -44,8 +44,9 @@ export default UISearchInput;
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderRadius: 7,
-    padding: 10,
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     borderWidth: 1,
   },
 });
