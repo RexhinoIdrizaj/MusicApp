@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
+import { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import { useColorMode } from "../hooks/useColorMode";
 import { TNullable } from "../models/modelShared";
 import { RADIUS, SPACINGS } from "../theme/sizes";
@@ -43,7 +44,7 @@ const YearBottomSheetContent: React.FC<TYearBottomSheetContentProps> = ({
 
   return (
     <View style={styles.container}>
-      <FlatList
+      <BottomSheetFlatList
         data={yearsList}
         style={styles.listWrapper}
         contentContainerStyle={styles.contentWrapper}

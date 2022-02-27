@@ -38,9 +38,8 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
               opacity={0.7}
             />
           )}
-          enablePanDownToClose
         >
-          <>{children}</>
+          {children}
         </BottomSheetModal>
       </BottomSheetModalProvider>
     );
@@ -50,9 +49,6 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
 export default UIBottomSheet;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   bottomSheetWrapperStyle: {
     borderRadius: RADIUS.XL,
     paddingVertical: SPACINGS.L,

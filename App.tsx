@@ -1,13 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import UISafeAreaView from "./src/components/UI/UISafeAreaView";
 import ScreenMusicList from "./src/screens/ScreenMusicList";
 
 const App = () => {
   return (
-    <UISafeAreaView style={styles.container}>
-      <ScreenMusicList />
-    </UISafeAreaView>
+    <GestureHandlerRootView style={styles.container}>
+      <UISafeAreaView style={styles.container}>
+        <ScreenMusicList />
+      </UISafeAreaView>
+    </GestureHandlerRootView>
   );
 };
 
