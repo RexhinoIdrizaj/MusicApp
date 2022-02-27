@@ -8,13 +8,16 @@ import {
 } from "react-native";
 import { useColorMode } from "../../hooks/useColorMode";
 import { FONTS, RADIUS } from "../../theme/sizes";
+import UIIconButton from "./UIIconButton";
 
 interface TUISearchInputProps extends TextInputProps {
   wrapperStyle?: ViewStyle;
+  onClearInput?: (value: string) => void;
 }
 
 const UISearchInput: React.FC<TUISearchInputProps> = ({
   wrapperStyle,
+  onClearInput,
   ...props
 }) => {
   const activeMode = useColorMode();
@@ -23,19 +26,23 @@ const UISearchInput: React.FC<TUISearchInputProps> = ({
     <View
       style={[styles.wrapper, { borderColor: activeMode.grey }, wrapperStyle]}
     >
-      <TextInput
-        clearButtonMode="while-editing"
-        placeholder="Search"
-        placeholderTextColor={activeMode.grey}
-        style={[
-          {
-            fontSize: FONTS.L,
-            color: activeMode.textColor,
-            backgroundColor: activeMode.backgroundColor,
-          },
-        ]}
-        {...props}
-      />
+      <View style={{ flexDirection: "row" }}>
+        <TextInput
+          placeholder="Search"
+          placeholderTextColor={activeMode.grey}
+          style={[
+            styles.input,
+            {
+              color: activeMode.textColor,
+              backgroundColor: activeMode.backgroundColor,
+            },
+          ]}
+          {...props}
+        />
+        {!!props.value && onClearInput && (
+          <UIIconButton iconName="times" onPress={() => onClearInput("")} />
+        )}
+      </View>
     </View>
   );
 };
@@ -48,5 +55,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderWidth: 1,
+  },
+  input: {
+    fontSize: FONTS.L,
+    flex: 1,
   },
 });

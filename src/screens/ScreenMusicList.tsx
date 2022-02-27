@@ -123,7 +123,7 @@ const ScreenMusicList: React.FC = () => {
     <>
       <View style={[styles.wrapper]}>
         <View style={[styles.searchContainer]}>
-          <UISearchInput value={textQuery} onChangeText={handleUserInput} />
+          <UISearchInput value={textQuery} onChangeText={handleUserInput} onClearInput={handleUserInput} />
         </View>
         <View style={styles.filters}>
           <FiltersSections
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     paddingHorizontal: SPACINGS.XXXL,
-    paddingBottom: SPACINGS.XXXL,
+    paddingVertical: SPACINGS.XXXL,
   },
   contentWrapper: {
     flex: 1,
