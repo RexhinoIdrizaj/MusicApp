@@ -28,9 +28,6 @@ export default {
         backgroundColor: "#FFFFFF",
       },
     },
-    web: {
-      favicon: "./assets/favicon.png",
-    },
     userInterfaceStyle: "automatic",
   },
 };
