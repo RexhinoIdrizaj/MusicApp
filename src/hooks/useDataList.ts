@@ -19,7 +19,6 @@ const useDataList = () => {
       setDataList(response.videos);
       setDataListError(false);
     } catch (error) {
-      // console.log(`error`, JSON.stringify(error));
       setDataListError(true);
     } finally {
       setLoading(false);

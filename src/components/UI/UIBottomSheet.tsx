@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useRef } from "react";
-import { StyleSheet, Text, View, ViewStyle } from "react-native";
+import React, { useMemo } from "react";
+import { StyleSheet, ViewStyle } from "react-native";
 import {
   BottomSheetBackdrop,
   BottomSheetModal,
@@ -7,8 +7,6 @@ import {
 } from "@gorhom/bottom-sheet";
 import { RADIUS, SPACINGS } from "../../theme/sizes";
 import { useColorMode } from "../../hooks/useColorMode";
-import UIView from "./UIView";
-import UIFilterChip from "./UIFilterChip";
 
 interface TUIBottomSheetProps {
   snapPoints?: (string | number)[];

@@ -1,11 +1,8 @@
-import React, { useRef } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import { useColorMode } from "../hooks/useColorMode";
+import React from "react";
+import { FlatList, StyleSheet, View } from "react-native";
 import { SPACINGS } from "../theme/sizes";
-import UIBottomSheet from "./UI/UIBottomSheet";
-import UIFilterChip from "./UI/UIFilterChip";
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { TGenre } from "../models/modelData";
+import UIFilterChip from "./UI/UIFilterChip";
 
 interface TFiltersSectionsProps {
   genres: TGenre[];
@@ -18,8 +15,6 @@ const FiltersSections: React.FC<TFiltersSectionsProps> = ({
   selectedGenresId,
   onSelectGenre,
 }) => {
-  const activeMode = useColorMode();
-
   const renderItem = ({ item }: { item: TGenre }) => (
     <UIFilterChip
       selected={!!selectedGenresId.find((id) => id === item.id)}
@@ -29,18 +24,16 @@ const FiltersSections: React.FC<TFiltersSectionsProps> = ({
   );
 
   return (
-    <>
-      <View style={[styles.container]}>
-        <FlatList
-          contentContainerStyle={styles.content}
-          showsHorizontalScrollIndicator={false}
-          horizontal
-          data={genres}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id.toString()}
-        />
-      </View>
-    </>
+    <View style={[styles.container]}>
+      <FlatList
+        contentContainerStyle={styles.content}
+        showsHorizontalScrollIndicator={false}
+        horizontal
+        data={genres}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    </View>
   );
 };
 

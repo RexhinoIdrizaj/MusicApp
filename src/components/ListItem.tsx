@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { SPACINGS } from "../theme/sizes";
 import {
   ITEMS_PER_COLUMN,
@@ -13,7 +13,7 @@ interface TListItemProps {
   imageSrc: string | null;
   title: string;
   artist: string;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 const ListItem: React.FC<TListItemProps> = ({
@@ -23,7 +23,11 @@ const ListItem: React.FC<TListItemProps> = ({
   onPress,
 }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      disabled={!onPress}
+    >
       {!!imageSrc && (
         <View style={styles.imageWrapper}>
           <UIListImagePlaceholder imgSource={imageSrc} />

@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from "react";
-import { Image, StyleSheet } from "react-native";
+import React from "react";
+import { Image } from "react-native";
 import { ITEM_PLACEHOLDER } from "../../../assets";
 
 interface TUIListImagePlaceholderProps {
@@ -10,16 +10,12 @@ const UIListImagePlaceholder: React.FC<TUIListImagePlaceholderProps> = ({
   imgSource,
 }) => {
   return (
-    <>
-      <Image
-        style={{ width: "100%", height: "100%" }}
-        source={{ uri: imgSource }}
-        defaultSource={ITEM_PLACEHOLDER}
-      />
-    </>
+    <Image
+      style={{ width: "100%", height: "100%" }}
+      source={{ uri: imgSource }}
+      defaultSource={ITEM_PLACEHOLDER}
+    />
   );
 };
 
 export default UIListImagePlaceholder;
-
-const styles = StyleSheet.create({});

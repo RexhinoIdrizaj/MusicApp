@@ -1,9 +1,7 @@
 import React from "react";
-import { Text, TextStyle, useColorScheme } from "react-native";
+import { Text, TextStyle } from "react-native";
 import { useColorMode } from "../../hooks/useColorMode";
 import { TThemeMode } from "../../models/modelTheme";
-import { MODES } from "../../theme/modes";
-
 import { FONTS } from "../../theme/sizes";
 
 interface TUITextProps {

@@ -2,10 +2,8 @@ import React from "react";
 import {
   ActivityIndicator,
   StyleSheet,
-  Text,
   TouchableOpacity,
   TouchableOpacityProps,
-  View,
   ViewStyle,
 } from "react-native";
 import { useColorMode } from "../../hooks/useColorMode";
@@ -51,7 +49,7 @@ export default UIButton;
 
 const styles = StyleSheet.create({
   button: {
-    height: 60,
+    height: 40,
     paddingHorizontal: SPACINGS.XXXL,
     borderRadius: RADIUS.M,
     justifyContent: "center",

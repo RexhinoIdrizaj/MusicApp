@@ -5,7 +5,6 @@ export interface TCommonColors {
   disabledGrey: string;
   lightGrey: string;
 }
-
 export interface TThemeMode extends TCommonColors {
   primary: string;
   textColor: string;

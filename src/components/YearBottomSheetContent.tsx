@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import { useColorMode } from "../hooks/useColorMode";
 import { TNullable } from "../models/modelShared";

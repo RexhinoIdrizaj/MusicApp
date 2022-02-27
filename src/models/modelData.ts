@@ -2,7 +2,6 @@ export interface TGenre {
   id: number;
   name: string;
 }
-
 export interface TVideo {
   id: number;
   artist: string;
