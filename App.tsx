@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import UISafeAreaView from "./src/components/UI/UISafeAreaView";
-import ScreenMusicList from "./src/screens/ScreenMusicList";
+import UISafeAreaView from './src/components/UI/UISafeAreaView';
+import ScreenMusicList from './src/screens/ScreenMusicList';
 
 const App = () => {
   return (
