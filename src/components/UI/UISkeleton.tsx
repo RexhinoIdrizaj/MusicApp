@@ -3,7 +3,6 @@ import { View, ViewStyle } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useColorMode } from '../../hooks/useColorMode';
 import { useSkeletonAnimation } from '../../hooks/useSkeleton';
-import { SCREEN_WIDTH_WITHOUT_SPACING } from '../../utils/constants';
 
 interface TUISkeletonProps {
   numberOfItems: number;

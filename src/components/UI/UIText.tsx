@@ -25,11 +25,12 @@ const UIText: React.FC<TUITextProps> = ({
     <Text
       {...props}
       style={{
-        fontSize: FONTS[fontSize!],
+        fontSize: FONTS[fontSize],
         color: activeMode[color],
         fontWeight,
         ...style,
-      }}>
+      }}
+    >
       {children}
     </Text>
   );

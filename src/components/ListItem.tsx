@@ -26,7 +26,8 @@ const ListItem: React.FC<TListItemProps> = ({
     <TouchableOpacity
       style={styles.container}
       onPress={onPress}
-      disabled={!onPress}>
+      disabled={!onPress}
+    >
       {!!imageSrc && (
         <View style={styles.imageWrapper}>
           <UIListImagePlaceholder imgSource={imageSrc} />

@@ -19,7 +19,7 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
     const activeMode = useColorMode();
 
     const defaultSnapPoints = useMemo(() => ['50%'], []);
-
+    
     return (
       <BottomSheetModalProvider>
         <BottomSheetModal
@@ -44,6 +44,8 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
 );
 
 export default UIBottomSheet;
+
+UIBottomSheet.displayName = 'UIBottomSheet';
 
 const styles = StyleSheet.create({
   bottomSheetWrapperStyle: {

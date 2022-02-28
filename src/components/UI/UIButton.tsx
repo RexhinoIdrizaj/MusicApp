@@ -38,7 +38,8 @@ const UIButton: React.FC<TUIButtonProps> = ({
         style,
       ]}
       disabled={disabled}
-      {...props}>
+      {...props}
+    >
       {loading ? <ActivityIndicator /> : <UIText>{title}</UIText>}
     </TouchableOpacity>
   );

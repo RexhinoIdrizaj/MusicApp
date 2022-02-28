@@ -36,7 +36,8 @@ const YearBottomSheetContent: React.FC<TYearBottomSheetContentProps> = ({
           backgroundColor:
             item === selectedValue ? activeMode.primary : 'transparent',
         },
-      ]}>
+      ]}
+    >
       <UIText fontSize="XXXL">{item ?? 'All'}</UIText>
     </TouchableOpacity>
   );

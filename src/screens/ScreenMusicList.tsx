@@ -10,7 +10,6 @@ import UINoData from '../components/UI/UINoData';
 import UISearchInput from '../components/UI/UISearchInput';
 import UISkeleton from '../components/UI/UISkeleton';
 import YearBottomSheetContent from '../components/YearBottomSheetContent';
-import { useColorMode } from '../hooks/useColorMode';
 import useDataList from '../hooks/useDataList';
 import { TVideo } from '../models/modelData';
 import { TNullable } from '../models/modelShared';
@@ -100,7 +99,8 @@ const ScreenMusicList: React.FC = () => {
             marginTop: SPACINGS.XL,
             justifyContent: 'flex-start',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <UIButton title="Retry" onPress={() => getDataList()} />
         </View>
       </View>

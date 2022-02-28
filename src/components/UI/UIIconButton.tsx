@@ -22,7 +22,8 @@ const UIIconButton: React.FC<TUIIconButtonProps> = ({ iconName, ...props }) => {
         right: 10,
       }}
       style={styles.iconContainer}
-      {...props}>
+      {...props}
+    >
       <FontAwesome
         style={{ color: activeMode.textColor }}
         size={14}

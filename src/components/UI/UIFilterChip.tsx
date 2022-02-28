@@ -40,9 +40,11 @@ const UIFilterChip: React.FC<TUIFilterChipProps> = ({
               : activeMode.backgroundColor,
           },
           style,
-        ]}>
+        ]}
+      >
         <UIText
-          style={{ color: selected ? activeMode.white : activeMode.textColor }}>
+          style={{ color: selected ? activeMode.white : activeMode.textColor }}
+        >
           {text}
         </UIText>
         {withIcon && (

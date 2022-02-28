@@ -18,7 +18,8 @@ const UISafeAreaView: React.FC<TUISafeAreaViewProps> = ({
 
   return (
     <SafeAreaView
-      style={[{ backgroundColor: activeMode[backgroundColor] }, style]}>
+      style={[{ backgroundColor: activeMode[backgroundColor] }, style]}
+    >
       {children}
     </SafeAreaView>
   );

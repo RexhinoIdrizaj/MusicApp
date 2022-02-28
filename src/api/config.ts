@@ -11,8 +11,10 @@ const responseBody = (response: AxiosResponse) => response.data;
 
 const requests = {
   get: (url: string) => instance.get(url).then(responseBody),
-  post: (url: string, body: {}) => instance.post(url, body).then(responseBody),
-  put: (url: string, body: {}) => instance.put(url, body).then(responseBody),
+  post: (url: string, body: Record<string, never>) =>
+    instance.post(url, body).then(responseBody),
+  put: (url: string, body: Record<string, never>) =>
+    instance.put(url, body).then(responseBody),
   delete: (url: string) => instance.delete(url).then(responseBody),
 };
 

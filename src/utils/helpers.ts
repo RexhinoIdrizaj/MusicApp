@@ -1,7 +1,7 @@
 export const getYearsList = () => {
   let maxYear = new Date().getFullYear();
-  let minYear = 1975;
-  let yearList = [];
+  const minYear = 1975;
+  const yearList = [];
   while (maxYear >= minYear) {
     yearList.push(maxYear.toString());
     maxYear--;

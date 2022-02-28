@@ -24,7 +24,8 @@ const UISearchInput: React.FC<TUISearchInputProps> = ({
 
   return (
     <View
-      style={[styles.wrapper, { borderColor: activeMode.grey }, wrapperStyle]}>
+      style={[styles.wrapper, { borderColor: activeMode.grey }, wrapperStyle]}
+    >
       <View style={{ flexDirection: 'row' }}>
         <TextInput
           placeholder="Search"
