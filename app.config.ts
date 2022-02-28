@@ -2,7 +2,7 @@ import "dotenv/config";
 
 export default {
   expo: {
-    name: "music-app",
+    name: "Music App",
     slug: "music-app",
     version: "1.0.0",
     extra: {
@@ -21,8 +21,12 @@ export default {
     assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true,
+      buildNumber: "1.0.0",
+      bundleIdentifier: "com.musicapp",
     },
     android: {
+      package: "com.musicapp",
+      versionCode: 1,
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#FFFFFF",
