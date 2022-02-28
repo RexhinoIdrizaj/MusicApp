@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 import {
   StyleProp,
   StyleSheet,
   TouchableOpacity,
   ViewStyle,
-} from "react-native";
-import { useColorMode } from "../../hooks/useColorMode";
-import { RADIUS, SPACINGS } from "../../theme/sizes";
-import UIText from "./UIText";
-import UIView from "./UIView";
+} from 'react-native';
+import { useColorMode } from '../../hooks/useColorMode';
+import { RADIUS, SPACINGS } from '../../theme/sizes';
+import UIText from './UIText';
+import UIView from './UIView';
 
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5 } from '@expo/vector-icons';
 
 interface TUIFilterChipProps {
   text: string;
@@ -40,11 +40,9 @@ const UIFilterChip: React.FC<TUIFilterChipProps> = ({
               : activeMode.backgroundColor,
           },
           style,
-        ]}
-      >
+        ]}>
         <UIText
-          style={{ color: selected ? activeMode.white : activeMode.textColor }}
-        >
+          style={{ color: selected ? activeMode.white : activeMode.textColor }}>
           {text}
         </UIText>
         {withIcon && (
@@ -69,9 +67,9 @@ const styles = StyleSheet.create({
     paddingVertical: SPACINGS.XS,
     paddingHorizontal: SPACINGS.M,
     marginRight: SPACINGS.M,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   icon: {
     marginLeft: SPACINGS.S,

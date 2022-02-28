@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
   TouchableOpacityProps,
-} from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
-import { useColorMode } from "../../hooks/useColorMode";
+} from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+import { useColorMode } from '../../hooks/useColorMode';
 
 interface TUIIconButtonProps extends TouchableOpacityProps {
   iconName: keyof typeof FontAwesome.glyphMap;
@@ -22,8 +22,7 @@ const UIIconButton: React.FC<TUIIconButtonProps> = ({ iconName, ...props }) => {
         right: 10,
       }}
       style={styles.iconContainer}
-      {...props}
-    >
+      {...props}>
       <FontAwesome
         style={{ color: activeMode.textColor }}
         size={14}
@@ -37,7 +36,7 @@ export default UIIconButton;
 
 const styles = StyleSheet.create({
   iconContainer: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -1,8 +1,8 @@
-import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
-import { SPACINGS } from "../theme/sizes";
-import { TGenre } from "../models/modelData";
-import UIFilterChip from "./UI/UIFilterChip";
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { SPACINGS } from '../theme/sizes';
+import { TGenre } from '../models/modelData';
+import UIFilterChip from './UI/UIFilterChip';
 
 interface TFiltersSectionsProps {
   genres: TGenre[];

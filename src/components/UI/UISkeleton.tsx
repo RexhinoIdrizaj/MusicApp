@@ -1,20 +1,20 @@
-import React from "react";
-import { View, ViewStyle } from "react-native";
-import Animated from "react-native-reanimated";
-import { useColorMode } from "../../hooks/useColorMode";
-import { useSkeletonAnimation } from "../../hooks/useSkeleton";
-import { SCREEN_WIDTH_WITHOUT_SPACING } from "../../utils/constants";
+import React from 'react';
+import { View, ViewStyle } from 'react-native';
+import Animated from 'react-native-reanimated';
+import { useColorMode } from '../../hooks/useColorMode';
+import { useSkeletonAnimation } from '../../hooks/useSkeleton';
+import { SCREEN_WIDTH_WITHOUT_SPACING } from '../../utils/constants';
 
 interface TUISkeletonProps {
   numberOfItems: number;
   loaderStyle?: ViewStyle;
-  direction?: "row" | "column";
+  direction?: 'row' | 'column';
 }
 
 const UISkeleton: React.FC<TUISkeletonProps> = ({
   loaderStyle,
   numberOfItems = 3,
-  direction = "row",
+  direction = 'row',
 }) => {
   const activeMode = useColorMode();
   const animatedStyle = useSkeletonAnimation({
@@ -23,7 +23,7 @@ const UISkeleton: React.FC<TUISkeletonProps> = ({
   });
 
   return (
-    <View style={{ flexDirection: direction, flexWrap: "wrap" }}>
+    <View style={{ flexDirection: direction, flexWrap: 'wrap' }}>
       {Array.from(Array(numberOfItems), (_, i) => (
         <Animated.View
           key={`s${i}`}

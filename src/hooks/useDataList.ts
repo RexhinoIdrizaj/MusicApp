@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
-import requests from "../api/config";
-import { TDataListResponse, TGenre, TVideo } from "../models/modelData";
+import { useCallback, useEffect, useState } from 'react';
+import requests from '../api/config';
+import { TDataListResponse, TGenre, TVideo } from '../models/modelData';
 
 const useDataList = () => {
   const [dataList, setDataList] = useState<TVideo[]>([]);
@@ -13,7 +13,7 @@ const useDataList = () => {
     setDataListError(false);
     try {
       const response: TDataListResponse = await requests.get(
-        "/XiteTV/frontend-coding-exercise/main/data/dataset.json"
+        '/XiteTV/frontend-coding-exercise/main/data/dataset.json',
       );
       setGenreList(response.genres);
       setDataList(response.videos);

@@ -1,8 +1,8 @@
-import React from "react";
-import { ViewStyle } from "react-native";
-import { useColorMode } from "../../hooks/useColorMode";
-import { TThemeMode } from "../../models/modelTheme";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React from 'react';
+import { ViewStyle } from 'react-native';
+import { useColorMode } from '../../hooks/useColorMode';
+import { TThemeMode } from '../../models/modelTheme';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface TUISafeAreaViewProps {
   backgroundColor?: keyof TThemeMode;
@@ -10,7 +10,7 @@ interface TUISafeAreaViewProps {
 }
 
 const UISafeAreaView: React.FC<TUISafeAreaViewProps> = ({
-  backgroundColor = "backgroundColor",
+  backgroundColor = 'backgroundColor',
   style,
   children,
 }) => {
@@ -18,8 +18,7 @@ const UISafeAreaView: React.FC<TUISafeAreaViewProps> = ({
 
   return (
     <SafeAreaView
-      style={[{ backgroundColor: activeMode[backgroundColor] }, style]}
-    >
+      style={[{ backgroundColor: activeMode[backgroundColor] }, style]}>
       {children}
     </SafeAreaView>
   );

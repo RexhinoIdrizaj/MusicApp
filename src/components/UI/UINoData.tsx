@@ -1,25 +1,25 @@
-import React from "react";
-import { Image, View, StyleSheet, ViewStyle } from "react-native";
-import { NO_DATA, GENERAL_ERROR } from "../../../assets";
-import UIText from "./UIText";
+import React from 'react';
+import { Image, View, StyleSheet, ViewStyle } from 'react-native';
+import { NO_DATA, GENERAL_ERROR } from '../../../assets';
+import UIText from './UIText';
 
 const ERROR = {
   noData: {
     img: NO_DATA,
-    text: "No data found",
+    text: 'No data found',
   },
   generalError: {
     img: GENERAL_ERROR,
-    text: "Something went wrong",
+    text: 'Something went wrong',
   },
 };
 interface TUINoDataProps {
-  errorType?: "noData" | "generalError";
+  errorType?: 'noData' | 'generalError';
   wrapperStyle?: ViewStyle;
 }
 
 const UINoData: React.FC<TUINoDataProps> = ({
-  errorType = "generalError",
+  errorType = 'generalError',
   wrapperStyle,
 }) => {
   return (
@@ -40,8 +40,8 @@ export default UINoData;
 
 const styles = StyleSheet.create({
   wrapper: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     top: -30,
   },
   image: {

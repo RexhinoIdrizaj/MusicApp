@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 import {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
   withTiming,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 interface TUseSkeletonAnimationProps {
   speed?: number;
@@ -22,7 +22,7 @@ export function useSkeletonAnimation({
     shared.value = withRepeat(
       withTiming(1, { duration: speed }),
       Infinity,
-      true
+      true,
     );
   }, []);
 

@@ -1,31 +1,31 @@
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import React, { useCallback, useRef, useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
-import FiltersSections from "../components/FiltersSections";
-import ListItem from "../components/ListItem";
-import UIBottomSheet from "../components/UI/UIBottomSheet";
-import UIButton from "../components/UI/UIButton";
-import UIFilterChip from "../components/UI/UIFilterChip";
-import UINoData from "../components/UI/UINoData";
-import UISearchInput from "../components/UI/UISearchInput";
-import UISkeleton from "../components/UI/UISkeleton";
-import YearBottomSheetContent from "../components/YearBottomSheetContent";
-import { useColorMode } from "../hooks/useColorMode";
-import useDataList from "../hooks/useDataList";
-import { TVideo } from "../models/modelData";
-import { TNullable } from "../models/modelShared";
-import { SPACINGS } from "../theme/sizes";
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import React, { useCallback, useRef, useState } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import FiltersSections from '../components/FiltersSections';
+import ListItem from '../components/ListItem';
+import UIBottomSheet from '../components/UI/UIBottomSheet';
+import UIButton from '../components/UI/UIButton';
+import UIFilterChip from '../components/UI/UIFilterChip';
+import UINoData from '../components/UI/UINoData';
+import UISearchInput from '../components/UI/UISearchInput';
+import UISkeleton from '../components/UI/UISkeleton';
+import YearBottomSheetContent from '../components/YearBottomSheetContent';
+import { useColorMode } from '../hooks/useColorMode';
+import useDataList from '../hooks/useDataList';
+import { TVideo } from '../models/modelData';
+import { TNullable } from '../models/modelShared';
+import { SPACINGS } from '../theme/sizes';
 import {
   ITEMS_PER_COLUMN,
   SCREEN_WIDTH_WITHOUT_SPACING,
-} from "../utils/constants";
+} from '../utils/constants';
 
 const ScreenMusicList: React.FC = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   const [selectedGenresId, setSelectedGenresId] = useState<number[]>([]);
   const [selectedYear, setSelectedYear] = useState<TNullable<string>>(null);
-  const [textQuery, setTextQuery] = useState<string>("");
+  const [textQuery, setTextQuery] = useState<string>('');
 
   const { dataList, genreList, dataListError, loading, getDataList } =
     useDataList();
@@ -49,7 +49,7 @@ const ScreenMusicList: React.FC = () => {
         : [...selectedGenresId, genreId];
       setSelectedGenresId(newGenres);
     },
-    [selectedGenresId]
+    [selectedGenresId],
   );
 
   const onSelectYear = useCallback(
@@ -57,7 +57,7 @@ const ScreenMusicList: React.FC = () => {
       bottomSheetModalRef.current?.close();
       setSelectedYear(value);
     },
-    [bottomSheetModalRef]
+    [bottomSheetModalRef],
   );
 
   const handleUserInput = useCallback((value) => {
@@ -79,8 +79,8 @@ const ScreenMusicList: React.FC = () => {
       }
       if (textQuery) {
         const lowerCaseQuery = textQuery.toLowerCase();
-        const title = el?.title ? el.title.toString().toLowerCase() : "";
-        const artist = el?.artist ? el.artist.toLowerCase() : "";
+        const title = el?.title ? el.title.toString().toLowerCase() : '';
+        const artist = el?.artist ? el.artist.toLowerCase() : '';
         filter =
           filter &&
           (title.includes(lowerCaseQuery) || artist.includes(lowerCaseQuery));
@@ -93,15 +93,14 @@ const ScreenMusicList: React.FC = () => {
 
   if (dataListError) {
     return (
-      <View style={{ flex: 1, justifyContent: "center" }}>
+      <View style={{ flex: 1, justifyContent: 'center' }}>
         <UINoData errorType="generalError" />
         <View
           style={{
             marginTop: SPACINGS.XL,
-            justifyContent: "flex-start",
-            alignItems: "center",
-          }}
-        >
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+          }}>
           <UIButton title="Retry" onPress={() => getDataList()} />
         </View>
       </View>
@@ -127,7 +126,7 @@ const ScreenMusicList: React.FC = () => {
           <View style={styles.yearWrapper}>
             <UIFilterChip
               withIcon
-              text={selectedYear ?? "Year"}
+              text={selectedYear ?? 'Year'}
               onPress={() => bottomSheetModalRef.current?.present()}
             />
           </View>
@@ -195,6 +194,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACINGS.S,
   },
   filters: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
 });

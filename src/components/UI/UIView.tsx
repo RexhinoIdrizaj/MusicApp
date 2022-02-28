@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleProp, View, ViewStyle } from "react-native";
-import { useColorMode } from "../../hooks/useColorMode";
-import { TThemeMode } from "../../models/modelTheme";
+import React from 'react';
+import { StyleProp, View, ViewStyle } from 'react-native';
+import { useColorMode } from '../../hooks/useColorMode';
+import { TThemeMode } from '../../models/modelTheme';
 
 interface TUIViewProps {
   backgroundColor?: keyof TThemeMode;
@@ -9,7 +9,7 @@ interface TUIViewProps {
 }
 
 const UIView: React.FC<TUIViewProps> = ({
-  backgroundColor = "backgroundColor",
+  backgroundColor = 'backgroundColor',
   style,
   children,
 }) => {

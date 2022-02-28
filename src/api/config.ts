@@ -1,6 +1,5 @@
-import axios, { AxiosResponse } from "axios";
-import Constants from "expo-constants";
-
+import axios, { AxiosResponse } from 'axios';
+import Constants from 'expo-constants';
 
 const BASE_URL = Constants.manifest?.extra?.baseUrl;
 

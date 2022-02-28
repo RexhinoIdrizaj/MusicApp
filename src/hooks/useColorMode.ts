@@ -1,5 +1,5 @@
-import { useColorScheme } from "react-native";
-import { MODES } from "../theme/modes";
+import { useColorScheme } from 'react-native';
+import { MODES } from '../theme/modes';
 
 export const useColorMode = () => {
   const colorScheme = useColorScheme();

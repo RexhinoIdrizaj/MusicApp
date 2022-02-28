@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import {
   ActivityIndicator,
   StyleSheet,
   TouchableOpacity,
   TouchableOpacityProps,
   ViewStyle,
-} from "react-native";
-import { useColorMode } from "../../hooks/useColorMode";
-import { RADIUS, SPACINGS } from "../../theme/sizes";
-import UIText from "./UIText";
+} from 'react-native';
+import { useColorMode } from '../../hooks/useColorMode';
+import { RADIUS, SPACINGS } from '../../theme/sizes';
+import UIText from './UIText';
 
 interface TUIButtonProps extends TouchableOpacityProps {
   title: string;
@@ -38,8 +38,7 @@ const UIButton: React.FC<TUIButtonProps> = ({
         style,
       ]}
       disabled={disabled}
-      {...props}
-    >
+      {...props}>
       {loading ? <ActivityIndicator /> : <UIText>{title}</UIText>}
     </TouchableOpacity>
   );
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
     height: 40,
     paddingHorizontal: SPACINGS.XXXL,
     borderRadius: RADIUS.M,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

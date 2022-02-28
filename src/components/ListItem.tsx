@@ -1,12 +1,12 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { SPACINGS } from "../theme/sizes";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { SPACINGS } from '../theme/sizes';
 import {
   ITEMS_PER_COLUMN,
   SCREEN_WIDTH_WITHOUT_SPACING,
-} from "../utils/constants";
-import UIListImagePlaceholder from "./UI/UIListImagePlaceholder";
-import UIText from "./UI/UIText";
+} from '../utils/constants';
+import UIListImagePlaceholder from './UI/UIListImagePlaceholder';
+import UIText from './UI/UIText';
 
 const ITEM_WIDTH = SCREEN_WIDTH_WITHOUT_SPACING / ITEMS_PER_COLUMN;
 interface TListItemProps {
@@ -26,8 +26,7 @@ const ListItem: React.FC<TListItemProps> = ({
     <TouchableOpacity
       style={styles.container}
       onPress={onPress}
-      disabled={!onPress}
-    >
+      disabled={!onPress}>
       {!!imageSrc && (
         <View style={styles.imageWrapper}>
           <UIListImagePlaceholder imgSource={imageSrc} />
@@ -59,13 +58,13 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     marginTop: SPACINGS.XS,
-    alignItems: "center",
+    alignItems: 'center',
   },
   artist: {
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: SPACINGS.XS,
   },
   title: {
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

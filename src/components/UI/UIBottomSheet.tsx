@@ -1,12 +1,12 @@
-import React, { useMemo } from "react";
-import { StyleSheet, ViewStyle } from "react-native";
+import React, { useMemo } from 'react';
+import { StyleSheet, ViewStyle } from 'react-native';
 import {
   BottomSheetBackdrop,
   BottomSheetModal,
   BottomSheetModalProvider,
-} from "@gorhom/bottom-sheet";
-import { RADIUS, SPACINGS } from "../../theme/sizes";
-import { useColorMode } from "../../hooks/useColorMode";
+} from '@gorhom/bottom-sheet';
+import { RADIUS, SPACINGS } from '../../theme/sizes';
+import { useColorMode } from '../../hooks/useColorMode';
 
 interface TUIBottomSheetProps {
   snapPoints?: (string | number)[];
@@ -18,7 +18,7 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
   ({ snapPoints, bottomSheetStyle, children }, modalRef) => {
     const activeMode = useColorMode();
 
-    const defaultSnapPoints = useMemo(() => ["50%"], []);
+    const defaultSnapPoints = useMemo(() => ['50%'], []);
 
     return (
       <BottomSheetModalProvider>
@@ -35,13 +35,12 @@ const UIBottomSheet = React.forwardRef<BottomSheetModal, TUIBottomSheetProps>(
               disappearsOnIndex={-1}
               opacity={0.7}
             />
-          )}
-        >
+          )}>
           {children}
         </BottomSheetModal>
       </BottomSheetModalProvider>
     );
-  }
+  },
 );
 
 export default UIBottomSheet;

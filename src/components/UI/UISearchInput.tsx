@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   StyleSheet,
   TextInputProps,
   TextInput,
   ViewStyle,
-} from "react-native";
-import { useColorMode } from "../../hooks/useColorMode";
-import { FONTS, RADIUS } from "../../theme/sizes";
-import UIIconButton from "./UIIconButton";
+} from 'react-native';
+import { useColorMode } from '../../hooks/useColorMode';
+import { FONTS, RADIUS } from '../../theme/sizes';
+import UIIconButton from './UIIconButton';
 
 interface TUISearchInputProps extends TextInputProps {
   wrapperStyle?: ViewStyle;
@@ -24,9 +24,8 @@ const UISearchInput: React.FC<TUISearchInputProps> = ({
 
   return (
     <View
-      style={[styles.wrapper, { borderColor: activeMode.grey }, wrapperStyle]}
-    >
-      <View style={{ flexDirection: "row" }}>
+      style={[styles.wrapper, { borderColor: activeMode.grey }, wrapperStyle]}>
+      <View style={{ flexDirection: 'row' }}>
         <TextInput
           placeholder="Search"
           placeholderTextColor={activeMode.grey}
@@ -40,7 +39,7 @@ const UISearchInput: React.FC<TUISearchInputProps> = ({
           {...props}
         />
         {!!props.value && onClearInput && (
-          <UIIconButton iconName="times" onPress={() => onClearInput("")} />
+          <UIIconButton iconName="times" onPress={() => onClearInput('')} />
         )}
       </View>
     </View>
