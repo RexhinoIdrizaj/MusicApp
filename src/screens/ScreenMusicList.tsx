@@ -18,6 +18,7 @@ import {
   ITEMS_PER_COLUMN,
   SCREEN_WIDTH_WITHOUT_SPACING,
 } from '../utils/constants';
+import { addRemoveGenre } from '../utils/helpers';
 
 const ScreenMusicList: React.FC = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -41,11 +42,7 @@ const ScreenMusicList: React.FC = () => {
 
   const handleGenreSelect = useCallback(
     (genreId: number) => {
-      const currentGenresId = [...selectedGenresId];
-      const genreExists = currentGenresId.find((el) => el === genreId);
-      const newGenres = genreExists
-        ? currentGenresId.filter((el) => el !== genreId)
-        : [...selectedGenresId, genreId];
+      const newGenres = addRemoveGenre(selectedGenresId, genreId);
       setSelectedGenresId(newGenres);
     },
     [selectedGenresId],
@@ -99,8 +96,7 @@ const ScreenMusicList: React.FC = () => {
             marginTop: SPACINGS.XL,
             justifyContent: 'flex-start',
             alignItems: 'center',
-          }}
-        >
+          }}>
           <UIButton title="Retry" onPress={() => getDataList()} />
         </View>
       </View>

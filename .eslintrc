@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "jest"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -18,5 +18,8 @@
       "pragma": "React",
       "version": "detect"
     }
+  },
+  "env": {
+    "jest/globals": true
   }
 }
